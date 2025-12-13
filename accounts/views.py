@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.urls import reverse
 
 
-def login_view(request: HttpRequest) -> HttpResponse:
+def login(request: HttpRequest) -> HttpResponse:
     if request.method == "GET":
         return render(request, "accounts/login.html")
     elif request.method == "POST":
@@ -23,6 +23,6 @@ def login_view(request: HttpRequest) -> HttpResponse:
                           context=error_context)
 
 
-def logout_view(request: HttpRequest) -> HttpResponse:
+def logout(request: HttpRequest) -> HttpResponse:
     logout(request)
     return render(request, "accounts/logged_out.html")
